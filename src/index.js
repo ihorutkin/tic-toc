@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Switcher from './game/switcher/switcher';
 
 function Square(props){
   return(
@@ -104,18 +105,21 @@ class Game extends React.Component {
       status = 'Next step: ' + (this.state.xIsNext ? 'X' : 'O')
     }
     return (
-      <div className="game">
-        <div className='status_text'>{status}</div>
-        <div className="game-board">
-          <Board 
-            squares = {current.squares}
-            onClick = {i => this.handleClick(i)}
-          />
+      <>
+        <Switcher />
+        <div className="game">
+          <div className='status_text'>{status}</div>
+          <div className="game-board">
+            <Board 
+              squares = {current.squares}
+              onClick = {i => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className="game-info">
-          <ol>{moves}</ol>
-        </div>
-      </div>
+      </>
     );
   }
 }
