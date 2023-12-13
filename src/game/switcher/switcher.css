@@ -75,3 +75,14 @@ input:checked + .check::before{
 .dark-mode .move_btn{
     color: #0b0a14;
 }
+
+.dark-mode .reset_btn{
+    background: #0a2435;
+    color: #f7f0e9;
+}
+
+.dark-mode .reset_btn:hover{
+    border: 1px solid #0a2435;
+    background: #f7f0e9;
+    color: #0a2435;
+}

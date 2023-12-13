@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Switcher from './game/switcher/switcher';
+import Reset from './game/reset/reset';
 
 function Square(props){
   return(
@@ -55,8 +56,18 @@ class Game extends React.Component {
         squares: Array(9).fill(null)
       }],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     }
+  }
+
+  resetGame() {
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null)
+      }],
+      stepNumber: 0,
+      xIsNext: true,
+    })
   }
 
   handleClick(i){
@@ -107,6 +118,7 @@ class Game extends React.Component {
     return (
       <>
         <Switcher />
+        <Reset onClick={() => this.resetGame()}/>
         <div className="game">
           <div className='status_text'>{status}</div>
           <div className="game-board">
